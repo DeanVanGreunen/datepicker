@@ -1,0 +1,57 @@
+div.date-picker {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    background-color: rgb(0, 129, 86);
+    color: #CCC;
+}
+
+.date-picker-days,
+.date-picker-months,
+.date-picker-years {
+    width: 100%;
+    text-align: center;
+}
+
+.date-picker-days-title,
+.date-picker-months-title,
+.date-picker-years-title {
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+    padding: 8px 0px;
+}
+
+.date-picker-days-table,
+.date-picker-days-table table,
+.date-picker-months-table,
+.date-picker-months-table table,
+.date-picker-years-table,
+.date-picker-years-table table,
+.date-picker-days-table-table,
+.date-picker-months-table-table,
+.date-picker-years-table-table {
+    text-align: center;
+    width: 100%;
+}
+
+
+.date-picker-days-table table tr td:hover,
+.date-picker-months-table table tr td:hover,
+.date-picker-years-table table tr td:hover,
+.date-picker-days-table-table tr td:hover,
+.date-picker-months-table-table tr td:hover,
+.date-picker-years-table-table tr td:hover,
+.date-picker-days-title-month:hover,
+.date-picker-days-title-year:hover,
+.date-picker-months-title-year:hover,
+.date-picker-years-title-year-previous:hover,
+.date-picker-years-title-year-next:hover {
+    background-color: #CCC;
+    color: rgb(0, 129, 86);
+}
+
+.hide {
+    display: none !important;
+    visibility: hidden !important;
+}
