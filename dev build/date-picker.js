@@ -8,33 +8,31 @@
     //Code Generators
     function generateYears(dp_id, startYear){
         destroyYears(dp_id);
-        let DatePickerYearsContainer = $($.parseHTML('<div></div>'));
-            DatePickerYearsContainer.addClass('date-picker-years');
-        let DatePickerYearsContainerTitle = $($.parseHTML('<div></div>'));
-            DatePickerYearsContainerTitle.addClass('date-picker-years-title');
-        let DatePickerYearsContainerTitlePrevious = $($.parseHTML('<span></span>'));
-            DatePickerYearsContainerTitlePrevious.addClass('date-picker-years-title-year-previous');
-            DatePickerYearsContainerTitlePrevious.html('&nbsp; &lt; &nbsp;');
-            DatePickerYearsContainerTitlePrevious.on('click',function(){
+        let DatePickerYearsContainer = $($.parseHTML('<div></div>'))
+            .addClass('date-picker-years');
+        let DatePickerYearsContainerTitle = $($.parseHTML('<div></div>'))
+            .addClass('date-picker-years-title');
+        let DatePickerYearsContainerTitlePrevious = $($.parseHTML('<span></span>'))
+            .addClass('date-picker-years-title-year-previous')
+            .html('&nbsp; &lt; &nbsp;')
+            .on('click',function(){
                 generateYears(dp_id, parseInt($('div[dp_id='+ dp_id + ']').attr('startYear'))  - 16);
             });
-        let DatePickerYearsContainerTitleSelectAYear = $($.parseHTML('<span></span>'));
-            DatePickerYearsContainerTitleSelectAYear.addClass('date-picker-years-title-year');
-            DatePickerYearsContainerTitleSelectAYear.html('Select A Year');
-        let DatePickerYearsContainerTitleNext = $($.parseHTML('<span></span>'));
-            DatePickerYearsContainerTitleNext.addClass('date-picker-years-title-year-next');
-            DatePickerYearsContainerTitleNext.html('&nbsp; &gt; &nbsp;');
-            DatePickerYearsContainerTitleNext.on('click',function(){
+        let DatePickerYearsContainerTitleSelectAYear = $($.parseHTML('<span></span>')).addClass('date-picker-years-title-year').html('Select A Year');
+        let DatePickerYearsContainerTitleNext = $($.parseHTML('<span></span>'))
+            .addClass('date-picker-years-title-year-next')
+            .html('&nbsp; &gt; &nbsp;')
+            .on('click',function(){
                 generateYears(dp_id, parseInt($('div[dp_id='+ dp_id + ']').attr('startYear')) + 16);
             });
-        DatePickerYearsContainerTitle.append(DatePickerYearsContainerTitlePrevious);
-        DatePickerYearsContainerTitle.append(DatePickerYearsContainerTitleSelectAYear);
-        DatePickerYearsContainerTitle.append(DatePickerYearsContainerTitleNext);
-        DatePickerYearsContainer.append(DatePickerYearsContainerTitle);
-        let DatePickerYearsContainerTable = $($.parseHTML('<div></div>'));
-            DatePickerYearsContainerTable.addClass('date-picker-years-table');
-        let DatePickerYearsContainerTableTable = $($.parseHTML('<table></table>'));
-            DatePickerYearsContainerTableTable.addClass('date-picker-years-table-table');
+        DatePickerYearsContainerTitle.append(DatePickerYearsContainerTitlePrevious)
+            .append(DatePickerYearsContainerTitleSelectAYear)
+            .append(DatePickerYearsContainerTitleNext)
+            .append(DatePickerYearsContainerTitle);
+        let DatePickerYearsContainerTable = $($.parseHTML('<div></div>'))
+            .addClass('date-picker-years-table');
+        let DatePickerYearsContainerTableTable = $($.parseHTML('<table></table>'))
+            .addClass('date-picker-years-table-table');
         let DatePickerYearsContainerTableTableRows = Array();
         startYear =  parseInt(startYear) || parseInt($('div[dp_id='+ dp_id + ']').attr('startYear')); //2019 -> 2015
         $('div[dp_id='+ dp_id + ']').attr('startYear', startYear);
@@ -43,11 +41,11 @@
         for(var x=0; x<4;x++){
             let DatePickerYearsContainerTableTableRow = $($.parseHTML('<tr></tr>'));
             for(var y=0; y<4;y++){
-                let DatePickerYearsContainerTableTableRowEntry = $($.parseHTML('<td></td>'));
-                    DatePickerYearsContainerTableTableRowEntry.on('click', function(){
+                let DatePickerYearsContainerTableTableRowEntry = $($.parseHTML('<td></td>'))
+                    .html(year)
+                    .on('click', function(){
                         selectYearAndDisplayMonths(this);
                     });
-                    DatePickerYearsContainerTableTableRowEntry.html(year);
                     year = year + 1;
                     DatePickerYearsContainerTableTableRow.append(DatePickerYearsContainerTableTableRowEntry);
             }
@@ -76,86 +74,86 @@
             });
         DatePickerMonthsContainerTitle.append(DatePickerMonthsContainerTitleYear);
         DatePickerMonthsContainer.append(DatePickerMonthsContainerTitle);
-        let DatePickerMonthsContainerTableContainer = $($.parseHTML('<div></div>'));
-            DatePickerMonthsContainerTableContainer.addClass('date-picker-months-table');
-        let DatePickerMonthsContainerTableContainerTable = $($.parseHTML('<table></table>'));
-            DatePickerMonthsContainerTableContainerTable.addClass('date-picker-months-table-table');
+        let DatePickerMonthsContainerTableContainer = $($.parseHTML('<div></div>'))
+            .addClass('date-picker-months-table');
+        let DatePickerMonthsContainerTableContainerTable = $($.parseHTML('<table></table>'))
+            .addClass('date-picker-months-table-table');
 
-        let DatePickerMonthsContainerTableContainerTableRow_1Entry_1 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_1.html('Jan');
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_1.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_1Entry_1 = $($.parseHTML('<td></td>'))
+            .html('Jan')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_1Entry_2 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_2.html('Feb');
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_2.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_1Entry_2 = $($.parseHTML('<td></td>'))
+            .html('Feb')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_1Entry_3 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_3.html('Mar');
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_3.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_1Entry_3 = $($.parseHTML('<td></td>'))
+            .html('Mar')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_1Entry_4 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_4.html('Apr');
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_4.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_1Entry_4 = $($.parseHTML('<td></td>'))
+            .html('Apr')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_1Entry_5 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_5.html('May');
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_5.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_1Entry_5 = $($.parseHTML('<td></td>'))
+            .html('May')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_1Entry_6 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_6.html('Jun');
-            DatePickerMonthsContainerTableContainerTableRow_1Entry_6.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_1Entry_6 = $($.parseHTML('<td></td>'))
+            .html('Jun')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
         let DatePickerMonthsContainerTableContainerTableRow_1 = $($.parseHTML('<tr></tr>'));
-        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_1);
-        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_2);
-        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_3);
-        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_4);
-        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_5);
-        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_6);
-        DatePickerMonthsContainerTableContainerTable.append(DatePickerMonthsContainerTableContainerTableRow_1);
-        let DatePickerMonthsContainerTableContainerTableRow_2Entry_1 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_1.html('Jul');
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_1.on('click', function(){
+        DatePickerMonthsContainerTableContainerTableRow_1.append(DatePickerMonthsContainerTableContainerTableRow_1Entry_1)
+            .append(DatePickerMonthsContainerTableContainerTableRow_1Entry_2)
+            .append(DatePickerMonthsContainerTableContainerTableRow_1Entry_3)
+            .append(DatePickerMonthsContainerTableContainerTableRow_1Entry_4)
+            .append(DatePickerMonthsContainerTableContainerTableRow_1Entry_5)
+            .append(DatePickerMonthsContainerTableContainerTableRow_1Entry_6)
+            .append(DatePickerMonthsContainerTableContainerTableRow_1);
+        let DatePickerMonthsContainerTableContainerTableRow_2Entry_1 = $($.parseHTML('<td></td>'))
+            .html('Jul')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_2Entry_2 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_2.html('Aug');
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_2.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_2Entry_2 = $($.parseHTML('<td></td>'))
+            .html('Aug')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_2Entry_3 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_3.html('Sep');
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_3.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_2Entry_3 = $($.parseHTML('<td></td>'))
+            .html('Sep')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_2Entry_4 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_4.html('Oct');
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_4.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_2Entry_4 = $($.parseHTML('<td></td>'))
+            .html('Oct')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_2Entry_5 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_5.html('Nov');
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_5.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_2Entry_5 = $($.parseHTML('<td></td>'))
+            .html('Nov')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
-        let DatePickerMonthsContainerTableContainerTableRow_2Entry_6 = $($.parseHTML('<td></td>'));
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_6.html('Dec');
-            DatePickerMonthsContainerTableContainerTableRow_2Entry_6.on('click', function(){
+        let DatePickerMonthsContainerTableContainerTableRow_2Entry_6 = $($.parseHTML('<td></td>'))
+            .html('Dec')
+            .on('click', function(){
                 selectMonthAndDisplayDays(this);
             });
         let DatePickerMonthsContainerTableContainerTableRow_2 = $($.parseHTML('<tr></tr>'));
-        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_1);
-        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_2);
-        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_3);
-        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_4);
-        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_5);
-        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_6);
+        DatePickerMonthsContainerTableContainerTableRow_2.append(DatePickerMonthsContainerTableContainerTableRow_2Entry_1)
+            .append(DatePickerMonthsContainerTableContainerTableRow_2Entry_2)
+            .append(DatePickerMonthsContainerTableContainerTableRow_2Entry_3)
+            .append(DatePickerMonthsContainerTableContainerTableRow_2Entry_4)
+            .append(DatePickerMonthsContainerTableContainerTableRow_2Entry_5)
+            .append(DatePickerMonthsContainerTableContainerTableRow_2Entry_6);
         DatePickerMonthsContainerTableContainerTable.append(DatePickerMonthsContainerTableContainerTableRow_2);
         DatePickerMonthsContainerTableContainer.append(DatePickerMonthsContainerTableContainerTable);
         DatePickerMonthsContainer.append(DatePickerMonthsContainerTableContainer);
@@ -165,49 +163,49 @@
 
     function generateDays(dp_id, month, year){ //month is 1 - 12; Jan to Dec
         destroyDays(dp_id);
-        let DatePickerDaysContainer =  $($.parseHTML('<div></div>'));
-            DatePickerDaysContainer.addClass('date-picker-days');
-        let DatePickerDaysContainerTitle =  $($.parseHTML('<div></div>'));
-            DatePickerDaysContainerTitle.addClass('date-picker-days-title');
+        let DatePickerDaysContainer =  $($.parseHTML('<div></div>'))
+            .addClass('date-picker-days');
+        let DatePickerDaysContainerTitle =  $($.parseHTML('<div></div>'))
+            .addClass('date-picker-days-title');
 
-        let DatePickerDaysContainerTitleMonth =  $($.parseHTML('<span></span>'));
-            DatePickerDaysContainerTitleMonth.addClass('date-picker-days-title-month');
-            DatePickerDaysContainerTitleMonth.html(month);
-            DatePickerDaysContainerTitleMonth.on('click', function(){
+        let DatePickerDaysContainerTitleMonth =  $($.parseHTML('<span></span>'))
+            .addClass('date-picker-days-title-month')
+            .html(month)
+            .on('click', function(){
                 GotoYearAndDisplayMonths(year,dp_id);
             });
-        let DatePickerDaysContainerTitleDashSeperator =  $($.parseHTML('<span></span>'));
-            DatePickerDaysContainerTitleDashSeperator.html('&nbsp;-&nbsp;');
+        let DatePickerDaysContainerTitleDashSeperator =  $($.parseHTML('<span></span>'))
+            .html('&nbsp;-&nbsp;');
         let DatePickerDaysContainerTitleYear =  $($.parseHTML('<span></span>'));
-            DatePickerDaysContainerTitleYear.addClass('date-picker-days-title-year');
-            DatePickerDaysContainerTitleYear.html(year);
-            DatePickerDaysContainerTitleYear.on('click', function(){
+            DatePickerDaysContainerTitleYear.addClass('date-picker-days-title-year')
+            .html(year)
+            .on('click', function(){
                 generateYears(dp_id, year);
                 hideDaysContainer(dp_id);
                 hideMonthsContainer(dp_id);
                 showYearsContainer(dp_id);
             });
 
-        DatePickerDaysContainerTitle.append(DatePickerDaysContainerTitleMonth);
-        DatePickerDaysContainerTitle.append(DatePickerDaysContainerTitleDashSeperator);
-        DatePickerDaysContainerTitle.append(DatePickerDaysContainerTitleYear);
+        DatePickerDaysContainerTitle.append(DatePickerDaysContainerTitleMonth)
+            .append(DatePickerDaysContainerTitleDashSeperator)
+            .append(DatePickerDaysContainerTitleYear);
 
         DatePickerDaysContainer.append(DatePickerDaysContainerTitle);
 
-        let DatePickerDaysContainerTableContainer =  $($.parseHTML('<div></div>'));
-            DatePickerDaysContainerTableContainer.addClass('date-picker-days-table');
+        let DatePickerDaysContainerTableContainer =  $($.parseHTML('<div></div>'))
+            .addClass('date-picker-days-table');
         
-        let DatePickerDaysContainerTableContainerTable =  $($.parseHTML('<table></table>'));
-            DatePickerDaysContainerTableContainerTable.addClass('date-picker-days-table-table');
+        let DatePickerDaysContainerTableContainerTable =  $($.parseHTML('<table></table>'))
+            .addClass('date-picker-days-table-table');
         
-        let DatePickerDaysContainerTableContainerTableRow_1 =  $($.parseHTML('<tr></tr>'));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>M</th>')));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>T</th>')));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>W</th>')));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>T</th>')));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>F</th>')));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>S</th>')));
-            DatePickerDaysContainerTableContainerTableRow_1.append($($.parseHTML('<th>S</th>')));
+        let DatePickerDaysContainerTableContainerTableRow_1 =  $($.parseHTML('<tr></tr>'))
+            .append($($.parseHTML('<th>M</th>')))
+            .append($($.parseHTML('<th>T</th>')))
+            .append($($.parseHTML('<th>W</th>')))
+            .append($($.parseHTML('<th>T</th>')))
+            .append($($.parseHTML('<th>F</th>')))
+            .append($($.parseHTML('<th>S</th>')))
+            .append($($.parseHTML('<th>S</th>')));
 
         
         DatePickerDaysContainerTableContainerTable.append(DatePickerDaysContainerTableContainerTableRow_1);
@@ -226,8 +224,8 @@
                     if(skip > counter){
                         DatePickerDaysContainerTableContainerTableRow_X.append($($.parseHTML('<td>&nbsp;</td>')));
                     } else if(cal_i <= totalDaysInMonth + 1){
-                        let DatePickerDaysContainerTableContainerTableRow_X_DAY = $($.parseHTML('<td>'+cal_i+'</td>'));
-                        DatePickerDaysContainerTableContainerTableRow_X_DAY.on('click', function(){                            
+                        let DatePickerDaysContainerTableContainerTableRow_X_DAY = $($.parseHTML('<td>'+cal_i+'</td>'))
+                        .on('click', function(){                            
                             selectDayAndSubmitDate(this);
                         });
                         DatePickerDaysContainerTableContainerTableRow_X.append(DatePickerDaysContainerTableContainerTableRow_X_DAY);
@@ -345,9 +343,9 @@
         $('body').append(DPC);
 
         //Align DatePicker With Input Field
-        var elm = $(this);  //get the div
-        var posY_top = elm.offset().top + 24;  //get the position from top
-        var posX_left = elm.offset().left; //get the position from left 
+        var elm = $(this);
+        var posY_top = (elm.offset().top + elm.outerHeight() + 4);
+        var posX_left = elm.offset().left;
         DPC.css('top', posY_top);
         DPC.css('left', posX_left);
         
